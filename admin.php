@@ -53,7 +53,10 @@ $update_form = false;
                 $cquery="SELECT * FROM catalog WHERE id=$cid";
                 $result=mysqli_query($con,$cquery);
                 if($result){
-                $cupdate=  mysqli_fetch_assoc($result);
+                foreach($result as $r){
+                  $r['id'];
+                  $r['title'];
+                }
   
               }
             }
@@ -122,8 +125,8 @@ $update_form = false;
           <form action="admin.php" method="post">
           <div class="w-64 shadow-2xl hover:scale-105 duration-1000 p-6 border-red-500  rounded-2xl">
           <h1 class="mb-2 text-center font-bold font-serif mb-3 text-2xl">UPdate</h1>
-          <input name='uid' value=$cupdate[id] class="border p-2 mb-3 rounded-lg border-red-800  w-full" type="text" placeholder="Enter  your email"  >
-            <input name='utitle' value=$cupdate[title] class="border p-2 mb-6 rounded-lg  border-red-800  w-full" type="text" placeholder="Enter  your email"  >
+          <input name='uid' value=<?php  echo $r['id'];?> class="border p-2 mb-3 rounded-lg border-red-800  w-full" type="text" placeholder="Enter  your email"  >
+            <input name='utitle' value=<?php  echo $r['title'];?> class="border p-2 mb-6 rounded-lg  border-red-800  w-full" type="text" placeholder="Enter  your email"  >
             <button name='ubtn' class="border-red-900  bg-red-700 text-white mb-3 rounded-xl flex justify-center border p-2 w-full space-x-7 "> update</button>
            
             </div>
